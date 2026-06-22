@@ -1,0 +1,239 @@
+=== Inter-rater agreement of col: What is your current role(s) in your organization? [CODED] ===
+  Academic/Researcher: kappa=1.000  alpha=1.000
+  Data/ML Engineer: kappa=1.000  alpha=1.000
+  DevOps Engineer: kappa=0.993  alpha=0.993
+  Management: kappa=1.000  alpha=1.000
+  Other: kappa=1.000  alpha=1.000
+  Product Owner: kappa=1.000  alpha=1.000
+  Software Architect: kappa=1.000  alpha=1.000
+  Software Developer: kappa=1.000  alpha=1.000
+  Student: kappa=1.000  alpha=1.000
+  Technical Lead: kappa=0.995  alpha=0.995
+
+=== Inter-rater agreement of col: What is the most valuable purpose(s) of an architecture view? [CODED] ===
+  Aid system documentation: kappa=1.000  alpha=1.000
+  Assist communication among team members: kappa=0.995  alpha=0.995
+  Clarify the system structure: kappa=0.983  alpha=0.983
+  Ease understanding complex interactions: kappa=0.995  alpha=0.995
+  Facilitate system evolution tracking: kappa=1.000  alpha=1.000
+  Help in design decision-making: kappa=1.000  alpha=1.000
+  Highlight architecture patterns: kappa=1.000  alpha=1.000
+  Other: kappa=0.799  alpha=0.799
+  Show component dependencies: kappa=0.995  alpha=0.995
+  Support onboarding new developers: kappa=0.995  alpha=0.995
+  Visualize runtime behaviour: kappa=1.000  alpha=1.000
+
+=== Inter-rater agreement of col: What is the most important concern(s) an architecture view should cover? [CODED] ===
+  Connection of components: kappa=1.000  alpha=1.000
+  Control flow: kappa=1.000  alpha=1.000
+  Data flow: kappa=1.000  alpha=1.000
+  Deployment: kappa=1.000  alpha=1.000
+  General documentation: kappa=1.000  alpha=1.000
+  Other: kappa=1.000  alpha=1.000
+
+=== Inter-rater agreement of col: Are you using in some way any standard notation in your architecture views? If so, which ones? [CODED] ===
+  4+1 View Model: kappa=1.000  alpha=1.000
+  ArchiMate: kappa=1.000  alpha=1.000
+  C4: kappa=1.000  alpha=1.000
+  IEEE 1471/ISO/IEC 42010: kappa=1.000  alpha=1.000
+  Not specified: kappa=0.955  alpha=0.955
+  Other: kappa=0.932  alpha=0.932
+  Reference Model of Open Distributed Processing (RM-ODP): kappa=1.000  alpha=1.000
+  TOGAF: kappa=1.000  alpha=1.000
+  UML: kappa=1.000  alpha=1.000
+  Zachman Framework: kappa=1.000  alpha=1.000
+
+=== Inter-rater agreement of col: If you believe important elements were missing above, please specify them with their importance (as example, code snippets - very important) [CODED] ===
+  Arcitectural Componets: kappa=1.000  alpha=1.000
+  Avoid Code and Classes: kappa=1.000  alpha=1.000
+  Connection/interaction: kappa=1.000  alpha=1.000
+  Control Flow: kappa=1.000  alpha=1.000
+  Data Layer: kappa=1.000  alpha=1.000
+  Documentation: kappa=1.000  alpha=1.000
+  Granularity Level: kappa=1.000  alpha=1.000
+  Nested Components: kappa=1.000  alpha=1.000
+  Other: kappa=1.000  alpha=1.000
+
+=== Inter-rater agreement of col: Which tool do you use to create architecture views? (if any) [CODED] ===
+  ASCII-Art: kappa=1.000  alpha=1.000
+  ASCIIFlow: kappa=1.000  alpha=1.000
+  AWS Architecture: kappa=1.000  alpha=1.000
+  Adobe XD: kappa=1.000  alpha=1.000
+  Affinity Designer: kappa=1.000  alpha=1.000
+  Caldera’s: kappa=1.000  alpha=1.000
+  Canva: kappa=1.000  alpha=1.000
+  Cloudcraft: kappa=1.000  alpha=1.000
+  Confluence: kappa=1.000  alpha=1.000
+  DBeaver: kappa=1.000  alpha=1.000
+  Dia: kappa=1.000  alpha=1.000
+  Draw.io / Diagram.net: kappa=1.000  alpha=1.000
+  Drawing apps: kappa=1.000  alpha=1.000
+  Enterprise Architect: kappa=1.000  alpha=1.000
+  Eraser: kappa=1.000  alpha=1.000
+  Excalidraw: kappa=1.000  alpha=1.000
+  Feishu: kappa=1.000  alpha=1.000
+  FigJam: kappa=1.000  alpha=1.000
+  Figma / FigJam: kappa=1.000  alpha=1.000
+  Free hand: kappa=1.000  alpha=1.000
+  Freeform: kappa=1.000  alpha=1.000
+  Gaphor: kappa=1.000  alpha=1.000
+  Gliffy: kappa=1.000  alpha=1.000
+  Google Drawings: kappa=1.000  alpha=1.000
+  GraphViz: kappa=1.000  alpha=1.000
+  Inkscape: kappa=1.000  alpha=1.000
+  Jetbrains Resharper Extension: kappa=1.000  alpha=1.000
+  Lark: kappa=1.000  alpha=1.000
+  LibreOffice Draw: kappa=1.000  alpha=1.000
+  LucidChart: kappa=1.000  alpha=1.000
+  Markdown: kappa=1.000  alpha=1.000
+  Mermaid: kappa=1.000  alpha=1.000
+  Milanote: kappa=1.000  alpha=1.000
+  Miro: kappa=1.000  alpha=1.000
+  MockUp: kappa=1.000  alpha=1.000
+  Monodraw: kappa=1.000  alpha=1.000
+  Mural: kappa=1.000  alpha=1.000
+  Obsidian: kappa=1.000  alpha=1.000
+  OmniGraffle: kappa=1.000  alpha=1.000
+  Paint: kappa=1.000  alpha=1.000
+  PlantUML: kappa=1.000  alpha=1.000
+  PowerPoint / Keynote / Slides: kappa=1.000  alpha=1.000
+  Processon: kappa=1.000  alpha=1.000
+  Pyhton diagrams: kappa=1.000  alpha=1.000
+  Python: kappa=1.000  alpha=1.000
+  SVG software: kappa=1.000  alpha=1.000
+  SequenceDiagram: kappa=1.000  alpha=1.000
+  Sigma: kappa=1.000  alpha=1.000
+  StarUML: kappa=1.000  alpha=1.000
+  Structurizr: kappa=1.000  alpha=1.000
+  TLdraw: kappa=1.000  alpha=1.000
+  TikZ: kappa=1.000  alpha=1.000
+  UML compiler: kappa=1.000  alpha=1.000
+  Umbrello: kappa=1.000  alpha=1.000
+  Vim: kappa=1.000  alpha=1.000
+  Visio: kappa=1.000  alpha=1.000
+  Visual Paradigm: kappa=1.000  alpha=1.000
+  Whimsical: kappa=1.000  alpha=1.000
+  ascii diagrams on markdown: kappa=1.000  alpha=1.000
+  asciidoc: kappa=1.000  alpha=1.000
+  https://github.com/mingrammer/diagrams: kappa=1.000  alpha=1.000
+  matplotlib: kappa=1.000  alpha=1.000
+  yEd: kappa=1.000  alpha=1.000
+
+=== Inter-rater agreement of col: If you are using a tool, what made you pick it? [CODED] ===
+  Already used in my development company: kappa=1.000  alpha=1.000
+  Diagram as code: kappa=1.000  alpha=1.000
+  Easy to use: kappa=1.000  alpha=1.000
+  FOSS: kappa=1.000  alpha=1.000
+  Free to use: kappa=1.000  alpha=1.000
+  Frequent updates: kappa=1.000  alpha=1.000
+  Integration with other tools: kappa=1.000  alpha=1.000
+  Other: kappa=1.000  alpha=1.000
+  Presence of templates: kappa=1.000  alpha=1.000
+  Rich of features: kappa=1.000  alpha=1.000
+  Supports collaboration: kappa=1.000  alpha=1.000
+  UX/UI: kappa=1.000  alpha=1.000
+  VCS friendly: kappa=1.000  alpha=1.000
+  Versatile: kappa=1.000  alpha=1.000
+  Works locally: kappa=1.000  alpha=1.000
+  Works online: kappa=1.000  alpha=1.000
+
+=== Inter-rater agreement of col: What are the biggest challenges you face when creating architecture views? [CODED] ===
+  Complex to create: kappa=1.000  alpha=1.000
+  Hard to mantain: kappa=1.000  alpha=1.000
+  Insufficient architectural design skills: kappa=1.000  alpha=1.000
+  Lack of existing documentation: kappa=1.000  alpha=1.000
+  Lack of templates: kappa=1.000  alpha=1.000
+  Lack of tools: kappa=1.000  alpha=1.000
+  NONE: kappa=1.000  alpha=1.000
+  Nobody uses the architecture views afterwards: kappa=1.000  alpha=1.000
+  Other: kappa=1.000  alpha=1.000
+  Perceived low value: kappa=1.000  alpha=1.000
+  Too time consuming: kappa=1.000  alpha=1.000
+
+=== Inter-rater agreement of col: Who is the intended user of your architecture views? [CODED] ===
+  End users: kappa=1.000  alpha=1.000
+  Existing contributors: kappa=1.000  alpha=1.000
+  Management: kappa=1.000  alpha=1.000
+  Myself: kappa=1.000  alpha=1.000
+  New potential contributors: kappa=1.000  alpha=1.000
+  Other: kappa=1.000  alpha=1.000
+  Project maintainers: kappa=1.000  alpha=1.000
+  Stakeholders: kappa=1.000  alpha=1.000
+
+=== Inter-rater agreement of col: If yes, please specify which tool you use [CODED] ===
+  API documentation generators that create reference materials from source code: kappa=1.000  alpha=1.000
+  Code Analysis Tools: kappa=1.000  alpha=1.000
+  Database Management Tools: kappa=1.000  alpha=1.000
+  Diagrams: kappa=1.000  alpha=1.000
+  Doxygen: kappa=1.000  alpha=1.000
+  Draw.io: kappa=1.000  alpha=1.000
+  Excalidraw: kappa=1.000  alpha=1.000
+  Figma: kappa=1.000  alpha=1.000
+  GitHub.com/tikimfee/lookatthat - custom 3d renderer for Visiospatial review / search: kappa=1.000  alpha=1.000
+  GraphViz: kappa=1.000  alpha=1.000
+  I've used rational rose in the past: kappa=1.000  alpha=1.000
+  IDE UML Diagram Features: kappa=1.000  alpha=1.000
+  IntelliJ diagrams: kappa=1.000  alpha=1.000
+  Jetbrains Resharper Extension: kappa=1.000  alpha=1.000
+  LLM tools: kappa=1.000  alpha=1.000
+  Mermaid: kappa=1.000  alpha=1.000
+  Miro: kappa=1.000  alpha=1.000
+  Other: kappa=1.000  alpha=1.000
+  PHP deptracker: kappa=1.000  alpha=1.000
+  PlantUML: kappa=1.000  alpha=1.000
+  StructurizR: kappa=1.000  alpha=1.000
+  UML: kappa=1.000  alpha=1.000
+  Visual Paradigm: kappa=1.000  alpha=1.000
+  a codebase i wrote to produce graphvis   graphs from  AST's: kappa=1.000  alpha=1.000
+  but haven't for over ten years.: kappa=1.000  alpha=1.000
+  cargo spec: kappa=1.000  alpha=1.000
+  chartmap: kappa=1.000  alpha=1.000
+  discopy: kappa=1.000  alpha=1.000
+  eraser.io: kappa=1.000  alpha=1.000
+  pprof: kappa=1.000  alpha=1.000
+  pyreverse: kappa=1.000  alpha=1.000
+
+=== Inter-rater agreement of col: Which of the following aspects could in your opinion be automated? [CODED] ===
+  Architecture view creation: kappa=1.000  alpha=1.000
+  Architecture view update: kappa=1.000  alpha=1.000
+  Architecture view validation: kappa=1.000  alpha=1.000
+  Identification of architecture components: kappa=1.000  alpha=1.000
+  Identification of connections / interaction between components: kappa=1.000  alpha=1.000
+  Linking architecture view elements to code artefacts (code classes: kappa=1.000  alpha=1.000
+  NONE: kappa=1.000  alpha=1.000
+  Other: kappa=1.000  alpha=1.000
+  etc): kappa=1.000  alpha=1.000
+  technologies: kappa=1.000  alpha=1.000
+
+=== Inter-rater agreement of col: In your opinion, how will the creation of architecture views change in the future? [CODED] ===
+  3D views: kappa=1.000  alpha=1.000
+  AI-Skeptical: kappa=1.000  alpha=1.000
+  AI-centered: kappa=1.000  alpha=1.000
+  Automation: kappa=1.000  alpha=1.000
+  Code-View Coupling: kappa=1.000  alpha=1.000
+  Do not knows: kappa=1.000  alpha=1.000
+  Easier management: kappa=1.000  alpha=1.000
+  Nicer UI: kappa=1.000  alpha=1.000
+  No Changes: kappa=1.000  alpha=1.000
+  Other: kappa=1.000  alpha=1.000
+  Simpler Management: kappa=1.000  alpha=1.000
+  VCS-Integration: kappa=1.000  alpha=1.000
+  VCS-integration: kappa=1.000  alpha=1.000
+
+=== Inter-rater agreement of col: Any further comments o suggestions? [CODED]  ===
+  GUI: kappa=1.000  alpha=1.000
+  automation: kappa=1.000  alpha=1.000
+  automation (AI): kappa=1.000  alpha=1.000
+  communication: kappa=1.000  alpha=1.000
+  communication (multimedia): kappa=1.000  alpha=1.000
+  dedicated_role: kappa=1.000  alpha=1.000
+  define_architecture: kappa=1.000  alpha=1.000
+  discouragement: kappa=1.000  alpha=1.000
+  encouragement: kappa=1.000  alpha=1.000
+  integration: kappa=1.000  alpha=1.000
+  misalignment: kappa=1.000  alpha=1.000
+  repository/tool suggestions: kappa=1.000  alpha=1.000
+  survey_suggestion: kappa=1.000  alpha=1.000
+  textual_views: kappa=1.000  alpha=1.000
+  too_focused_on_code: kappa=1.000  alpha=1.000
+  tool/repository suggestion: kappa=1.000  alpha=1.000

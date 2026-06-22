@@ -1,0 +1,53 @@
+TOOL,Notation Type,License Type,Open Source,Collaborative Model,Environment,Diagram-as-Code,occurrence
+Draw.io / Diagram.net,Free Form,Free,Yes,Collaborative,IDE-Integrated,Native,296
+AWS Architecture,Free Form,Freemium,No,Single User,Standalone,Native,32
+PowerPoint / Keynote / Slides,Free Form,Commercial,No,Single User,Standalone,No,114
+Visio,Free Form,Commercial,No,Single User,Standalone,No,50
+Excalidraw,Free Form,Free,Yes,Single User,IDE-Integrated,No,33
+matplotlib,Free Form,Free,Yes,Single User,IDE-Integrated,Native,1
+TikZ,Free Form,Free,Yes,Single User,IDE-Integrated,Native,2
+Miro,Free Form,Freemium,No,Collaborative,Standalone,No,23
+LucidChart,Free Form,Freemium,No,Collaborative,Standalone,No,16
+yEd,Free Form,Freemium,No,Single User,Standalone,No,2
+Cloudcraft,Free Form,Freemium,No,Collaborative,Standalone,No,2
+Google Drawings,Free Form,Free,No,Collaborative,Standalone,No,3
+PlantUML,Fixed Notation,Free,Yes,Single User,IDE-Integrated,Native,17
+Mermaid,Fixed Notation,Free,Yes,Single User,IDE-Integrated,Native,24
+TLdraw,Free Form,Free,Yes,Collaborative,Standalone,No,2
+Obsidian,Fixed Notation,Freemium,No,Single User,Standalone,No,1
+Affinity Designer,Free Form,Commercial,No,Single User,Standalone,No,1
+Confluence,Free Form,Free,No,Collaborative,Standalone,No,2
+DBeaver,Fixed Notation,Freemium,Yes,Single User,Standalone,No,1
+Eraser,Free Form,Freemium,No,Collaborative,Standalone,No,2
+ASCIIFlow,Free Form,Free,Yes,Single User,Standalone,Native,1
+Enterprise Architect,Fixed Notation,Commercial,No,Single User,Standalone,No,1
+Inkscape,Free Form,Free,Yes,Single User,Standalone,No,3
+Freeform,Free Form,Free,No,Collaborative,Standalone,No,1
+Markdown,Fixed Notation,Free,Yes,Single User,IDE-Integrated,Native,2
+Vim,Fixed Notation,Free,Yes,Single User,IDE-Integrated,Native,1
+Adobe XD,Free Form,Commercial,No,Collaborative,Standalone,No,1
+Gaphor,Fixed Notation,Free,Yes,Single User,Standalone,No,1
+Lark,Free Form,Freemium,No,Collaborative,Standalone,No,1
+StarUML,Fixed Notation,Freemium,No,Single User,Standalone,No,1
+Gliffy,Free Form,Freemium,No,Collaborative,Standalone,No,2
+Feishu,Free Form,Freemium,No,Collaborative,Standalone,No,1
+Visual Paradigm,Fixed Notation,Commercial,No,Single User,Standalone,No,2
+Monodraw,Free Form,Commercial,No,Single User,Standalone,No,2
+SequenceDiagram,Fixed Notation,Free,No,Collaborative,Standalone,Native,1
+https://github.com/mingrammer/diagrams,Fixed Notation,Free,Yes,Single User,IDE-Integrated,Native,1
+Dia,Free Form,Free,No,Single User,Standalone,No,2
+Figma / FigJam,Free Form,Freemium,No,Collaborative,Standalone,No,4
+Structurizr,Fixed Notation,Freemium,Yes,Single User,IDE-Integrated,Native,2
+Python,Fixed Notation,Free,Yes,Single User,IDE-Integrated,Native,1
+OmniGraffle,Free Form,Commercial,No,Collaborative,Standalone,No,1
+Paint,Free Form,Free,No,Single User,Standalone,No,1
+Whimsical,Free Form,Freemium,No,Collaborative,Standalone,No,3
+Umbrello,Fixed Notation,Free,Yes,Single User,Standalone,Native,1
+Pyhton diagrams,Fixed Notation,Free,Yes,Single User,IDE-Integrated,Native,1
+Milanote,Free Form,Freemium,No,Collaborative,Standalone,No,1
+ascii diagrams on markdown,Fixed Notation,Free,Yes,Single User,IDE-Integrated,Native,1
+Mural,Free Form,Freemium,No,Collaborative,Standalone,Native,1
+Processon,Free Form,Freemium,No,Collaborative,Standalone,Native,1
+GraphViz,Fixed Notation,Free,Yes,Single User,IDE-Integrated,Native,2
+Canva,Free Form,Freemium,No,Collaborative,Standalone,No,1
+LibreOffice Draw,Free Form,Free,Yes,Single User,Standalone,No,1

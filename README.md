@@ -1,11 +1,10 @@
 # Replication Package — How Architectural Views Should Be: Simple, Informal, and Automated
 
-This replication package contains the survey instrument, the (anonymized) raw
-and coded responses, the analysis code that produces every figure in the paper,
-and the scripts used to recruit and contact participants.
 
-This repository is a companion page for the following publication, submitted to the [IEEE Transactions on Software Engineering](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=32):
+This repository is a replication package for the following publication, submitted to the [IEEE Transactions on Software Engineering](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=32):
 > Leonardo Scommegna, Roberto Verdecchia, Ivano Malavolta, Patricia Lago and Enrico Vicario. 2026. How Architectural Views Should Be: Simple, Informal, and Automated
+
+In particular, it contains the survey instrument, the (anonymized) raw and coded responses, the analysis code that produces every figure in the paper, and the scripts used to recruit and contact participants.
 
 ## Structure
 

@@ -13,7 +13,7 @@ replicationPackage/
 ├── README.md                                   # this file
 ├── survey-structure-googleForm.pdf             # the survey instrument
 │
-├── coding/                                      # raw & coded survey responses (source of truth)
+├── coding/                                      # raw & coded survey responses 
 │   ├── ... - Original results.csv               # raw survey export
 │   ├── ... - Coding.csv                         # consolidated coding used for analysis
 │   ├── ... - Second coding.csv                  # independent second coding (inter-rater)
@@ -43,7 +43,7 @@ replicationPackage/
 > personally identifying information have been removed and replaced with the
 > placeholder `ANONYMIZED` (GitHub API token, SMTP host, credentials path,
 > survey link). They are **not** runnable as-is and are not needed to reproduce
-> the results — the analysis in `data-processing/` is fully self-contained.
+> the results. The analysis in `data-processing/` is fully self-contained.
 > The exact text of the recruitment e-mail sent to candidate participants is
 > included in [`survey-dissemination/mail-sender.py`](survey-dissemination/mail-sender.py)
 > (the message body, with the survey link).

@@ -4,7 +4,8 @@
 This repository is a replication package for the following publication, submitted to the [IEEE Transactions on Software Engineering](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=32):
 > Leonardo Scommegna, Roberto Verdecchia, Ivano Malavolta, Patricia Lago and Enrico Vicario. 2026. How Architectural Views Should Be: Simple, Informal, and Automated
 
-In particular, it contains the survey instrument, the (anonymized) raw and coded responses, the analysis code that produces every figure in the paper, and the scripts used to recruit and contact participants.
+In particular, it contains the survey instrument, the (anonymized) raw and coded responses together with the codebook of the qualitative coding, the analysis code that produces every figure and the inter-rater agreement report in the paper, and the scripts used to recruit and contact participants.
+
 
 ## Structure
 
@@ -17,6 +18,9 @@ replicationPackage/
 │   ├── ... - Original results.csv               # raw survey export
 │   ├── ... - Coding.csv                         # consolidated coding used for analysis
 │   ├── ... - Second coding.csv                  # independent second coding (inter-rater)
+│   ├── codebook.csv                             # one row per code (question, code,
+│   │                                            #   definition, type, frequency)
+│   ├── coding_summary.md                        # macro-categories of the open-ended
 │   ├── ... - Tool Classification.csv            # tool classification coding
 │   ├── ... - Tool Classification - second.csv   # second tool classification coding
 │   └── ... - tool-classification-occurrence.csv # tool classification weighted by occurrence
@@ -47,6 +51,18 @@ replicationPackage/
 > The exact text of the recruitment e-mail sent to candidate participants is
 > included in [`survey-dissemination/mail-sender.py`](survey-dissemination/mail-sender.py)
 > (the message body, with the survey link).
+
+## Qualitative coding (`coding/`)
+
+Free-text answers were analyzed via manual coding with a twofold purpose: (i) mapping the free-text ("other") answers of the nine semi-closed questions (Q5, Q13, Q14, Q17, Q20, Q21, Q22, Q23, Q31) onto the closed-ended option they refer to, or onto a new category not anticipated by the questionnaire (e.g., `Academic/Researcher` for Q5, `Diagram as code` and `VCS friendly` for Q21, `Stakeholders` for Q23); (ii) identifying the themes emerging from the four open-ended questions (Q19, Q30, Q32, Q33).
+
+**Procedure.** Two researchers coded the same answers independently in a shared spreadsheet, following open coding (fine-grained codes extracted from the raw answers) and axial coding (grouping of codes into macro-categories). Coding is multi-label: an answer containing several concepts receives several codes, separated by commas. Disagreements were resolved by discussion; the reconciled result is `... - Coding.csv`, the independent second coding is `... - Second coding.csv`. The 17 respondents who failed the screening question (Q1) are kept in the sheets but excluded from all analyses.
+
+**Outcome.** 490 free-text answers to 13 questions were coded. For each `[CODED]` column, `codebook.csv` lists every code with its definition, type (predefined option vs. emergent category), and frequency over the 411 valid respondents; `coding_summary.md` reports the macro-categories of the open-ended questions (e.g., Q32: AI/LLM-centered 47, automation 18, code–view coupling 15, no change 7, ...). The coding aimed at descriptive synthesis: axial categories group codes hierarchically and do not encode causal relationships.
+
+**Agreement.** Inter-rater reliability (Krippendorff's alpha per code, one-vs-rest, macro-averaged per question) is computed by the analysis pipeline and written to `data-processing/plot/` (see below).
+
+
 
 ## Reproducing the plots (`data-processing/`)
 

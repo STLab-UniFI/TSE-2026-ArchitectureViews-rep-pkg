@@ -1,0 +1,206 @@
+question_id,question,code,code_type,n,definition
+Q5,What is your current role(s) in your organization?,Software Developer,predefined option,277,Predefined answer option of Q5
+Q5,What is your current role(s) in your organization?,Technical Lead,predefined option,150,Predefined answer option of Q5
+Q5,What is your current role(s) in your organization?,Software Architect,predefined option,147,Predefined answer option of Q5
+Q5,What is your current role(s) in your organization?,DevOps Engineer,predefined option,89,Predefined answer option of Q5
+Q5,What is your current role(s) in your organization?,Product Owner,predefined option,42,Predefined answer option of Q5
+Q5,What is your current role(s) in your organization?,Management,emergent category,20,"Managerial roles (e.g., director, manager, community manager)"
+Q5,What is your current role(s) in your organization?,Academic/Researcher,emergent category,15,"Academic or research positions (e.g., professor, researcher, PhD student)"
+Q5,What is your current role(s) in your organization?,Data/ML Engineer,emergent category,10,"Data- or ML-oriented engineering roles (e.g., data consultant, ML engineer)"
+Q5,What is your current role(s) in your organization?,Other,emergent category,5,Role not attributable to any category
+Q5,What is your current role(s) in your organization?,Student,predefined option,3,Student
+Q13,What is the most valuable purpose(s) of an architecture view?,Clarify the system structure,predefined option,380,Predefined answer option of Q13
+Q13,What is the most valuable purpose(s) of an architecture view?,Support onboarding new developers,predefined option,255,Predefined answer option of Q13
+Q13,What is the most valuable purpose(s) of an architecture view?,Ease understanding complex interactions,predefined option,254,Predefined answer option of Q13
+Q13,What is the most valuable purpose(s) of an architecture view?,Show component dependencies,predefined option,239,Predefined answer option of Q13
+Q13,What is the most valuable purpose(s) of an architecture view?,Assist communication among team members,predefined option,189,Predefined answer option of Q13
+Q13,What is the most valuable purpose(s) of an architecture view?,Help in design decision-making,predefined option,189,Predefined answer option of Q13
+Q13,What is the most valuable purpose(s) of an architecture view?,Aid system documentation,predefined option,177,Predefined answer option of Q13
+Q13,What is the most valuable purpose(s) of an architecture view?,Highlight architecture patterns,predefined option,151,Predefined answer option of Q13
+Q13,What is the most valuable purpose(s) of an architecture view?,Facilitate system evolution tracking,predefined option,86,Predefined answer option of Q13
+Q13,What is the most valuable purpose(s) of an architecture view?,Visualize runtime behaviour,predefined option,84,Predefined answer option of Q13
+Q13,What is the most valuable purpose(s) of an architecture view?,Other,emergent category,3,"Purpose not among the options (mostly ""it depends on the project"")"
+Q14,What is the most important concern(s) an architecture view should cover?,Connection of components,predefined option,307,Predefined answer option of Q14
+Q14,What is the most important concern(s) an architecture view should cover?,Data flow,predefined option,271,Predefined answer option of Q14
+Q14,What is the most important concern(s) an architecture view should cover?,Control flow,predefined option,191,Predefined answer option of Q14
+Q14,What is the most important concern(s) an architecture view should cover?,General documentation,predefined option,138,Predefined answer option of Q14
+Q14,What is the most important concern(s) an architecture view should cover?,Deployment,predefined option,60,Predefined answer option of Q14
+Q14,What is the most important concern(s) an architecture view should cover?,Other,emergent category,9,"Concern not among the options (mostly ""depends on the context"", separation of concerns, tracking changes)"
+Q17,"Are you using in some way any standard notation in your architecture views? If so, which ones?",UML,predefined option,212,Predefined answer option of Q17
+Q17,"Are you using in some way any standard notation in your architecture views? If so, which ones?",C4,predefined option,52,Predefined answer option of Q17
+Q17,"Are you using in some way any standard notation in your architecture views? If so, which ones?",4+1 View Model,predefined option,15,Predefined answer option of Q17
+Q17,"Are you using in some way any standard notation in your architecture views? If so, which ones?",IEEE 1471/ISO/IEC 42010,predefined option,13,Predefined answer option of Q17
+Q17,"Are you using in some way any standard notation in your architecture views? If so, which ones?",ArchiMate,predefined option,13,Predefined answer option of Q17
+Q17,"Are you using in some way any standard notation in your architecture views? If so, which ones?",TOGAF,predefined option,12,Predefined answer option of Q17
+Q17,"Are you using in some way any standard notation in your architecture views? If so, which ones?",Not specified,emergent category,12,"Respondent named a drawing tool (e.g., Mermaid, Excalidraw) rather than a notation"
+Q17,"Are you using in some way any standard notation in your architecture views? If so, which ones?",Reference Model of Open Distributed Processing (RM-ODP),predefined option,8,Predefined answer option of Q17
+Q17,"Are you using in some way any standard notation in your architecture views? If so, which ones?",Other,emergent category,7,"Notation not among the options (e.g., BPMN, threat modeling)"
+Q17,"Are you using in some way any standard notation in your architecture views? If so, which ones?",Zachman Framework,predefined option,2,Zachman enterprise-architecture framework
+Q19,"If you believe important elements were missing above, please specify them with their importance (as example, code snippets - very important)",Connection/interaction,emergent code,4,Relationships with external services and explicit interface definitions
+Q19,"If you believe important elements were missing above, please specify them with their importance (as example, code snippets - very important)",Control Flow,emergent code,4,Explicit representation of control and data flow
+Q19,"If you believe important elements were missing above, please specify them with their importance (as example, code snippets - very important)",Granularity Level,emergent code,4,"Multiple diagrams, each at a specific level of abstraction"
+Q19,"If you believe important elements were missing above, please specify them with their importance (as example, code snippets - very important)",Other,emergent code,4,Element not attributable to any category
+Q19,"If you believe important elements were missing above, please specify them with their importance (as example, code snippets - very important)",Data Layer,emergent code,3,Databases and the data layer
+Q19,"If you believe important elements were missing above, please specify them with their importance (as example, code snippets - very important)",Avoid Code and Classes,emergent code,3,Views should not include code- or class-level details
+Q19,"If you believe important elements were missing above, please specify them with their importance (as example, code snippets - very important)",Nested Components,emergent code,2,Hierarchical containment of components
+Q19,"If you believe important elements were missing above, please specify them with their importance (as example, code snippets - very important)",Documentation,emergent code,2,Accompanying textual documentation
+Q19,"If you believe important elements were missing above, please specify them with their importance (as example, code snippets - very important)",Arcitectural Componets,emergent code,1,Architectural components
+Q20,Which tool do you use to create architecture views? (if any),Draw.io / Diagram.net,predefined option,296,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),PowerPoint / Keynote / Slides,predefined option,114,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Visio,predefined option,50,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Excalidraw,predefined option,33,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),AWS Architecture,predefined option,32,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Mermaid,predefined option,24,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Miro,predefined option,23,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),PlantUML,predefined option,17,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),LucidChart,predefined option,16,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Free hand,emergent category,5,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),Figma / FigJam,emergent category,4,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),Google Drawings,predefined option,3,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Inkscape,predefined option,3,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Whimsical,predefined option,3,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),TikZ,predefined option,2,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),yEd,predefined option,2,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Cloudcraft,emergent category,2,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),TLdraw,predefined option,2,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Confluence,predefined option,2,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Eraser,emergent category,2,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),Markdown,predefined option,2,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Gliffy,predefined option,2,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Visual Paradigm,predefined option,2,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Monodraw,predefined option,2,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Dia,predefined option,2,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Structurizr,emergent category,2,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),GraphViz,predefined option,2,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),matplotlib,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Obsidian,emergent category,1,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),Affinity Designer,emergent category,1,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),DBeaver,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),ASCII-Art,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),ASCIIFlow,emergent category,1,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),Enterprise Architect,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),MockUp,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Freeform,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Vim,emergent category,1,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),Adobe XD,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Gaphor,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Lark,emergent category,1,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),StarUML,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Feishu,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),SequenceDiagram,emergent category,1,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),https://github.com/mingrammer/diagrams,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Sigma,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),SVG software,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Python,emergent category,1,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),Caldera’s,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),UML compiler,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Paint,emergent category,1,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),Umbrello,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Pyhton diagrams,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Milanote,emergent category,1,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),OmniGraffle,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),ascii diagrams on markdown,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Mural,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Processon,emergent category,1,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),Jetbrains Resharper Extension,predefined option,1,Predefined answer option of Q20
+Q20,Which tool do you use to create architecture views? (if any),Canva,emergent category,1,Tool named by the respondent (name normalized)
+Q20,Which tool do you use to create architecture views? (if any),LibreOffice Draw,predefined option,1,Predefined answer option of Q20
+Q21,"If you are using a tool, what made you pick it?",Easy to use,predefined option,346,Predefined answer option of Q21
+Q21,"If you are using a tool, what made you pick it?",Free to use,predefined option,243,Predefined answer option of Q21
+Q21,"If you are using a tool, what made you pick it?",Rich of features,predefined option,129,Predefined answer option of Q21
+Q21,"If you are using a tool, what made you pick it?",Already used in my development company,predefined option,125,Predefined answer option of Q21
+Q21,"If you are using a tool, what made you pick it?",Supports collaboration,predefined option,123,Predefined answer option of Q21
+Q21,"If you are using a tool, what made you pick it?",Versatile,predefined option,107,Predefined answer option of Q21
+Q21,"If you are using a tool, what made you pick it?",Integration with other tools,predefined option,87,Predefined answer option of Q21
+Q21,"If you are using a tool, what made you pick it?",Presence of templates,predefined option,72,Predefined answer option of Q21
+Q21,"If you are using a tool, what made you pick it?",Frequent updates,predefined option,19,Predefined answer option of Q21
+Q21,"If you are using a tool, what made you pick it?",Diagram as code,predefined option,11,Diagrams written as text/code
+Q21,"If you are using a tool, what made you pick it?",VCS friendly,emergent category,9,Diagram can be stored and diffed in version control
+Q21,"If you are using a tool, what made you pick it?",UX/UI,emergent category,6,"Look and feel of the tool (e.g., icons)"
+Q21,"If you are using a tool, what made you pick it?",FOSS,emergent category,6,Tool is open source
+Q21,"If you are using a tool, what made you pick it?",Works locally,emergent category,4,Offline / self-hosted use
+Q21,"If you are using a tool, what made you pick it?",Other,emergent category,4,Reason not attributable to any category
+Q21,"If you are using a tool, what made you pick it?",Works online,emergent category,2,Web-based use
+Q22,What are the biggest challenges you face when creating architecture views?,Hard to mantain,predefined option,257,Predefined answer option of Q22
+Q22,What are the biggest challenges you face when creating architecture views?,Too time consuming,predefined option,172,Predefined answer option of Q22
+Q22,What are the biggest challenges you face when creating architecture views?,Complex to create,predefined option,152,Predefined answer option of Q22
+Q22,What are the biggest challenges you face when creating architecture views?,Nobody uses the architecture views afterwards,predefined option,105,Predefined answer option of Q22
+Q22,What are the biggest challenges you face when creating architecture views?,Lack of templates,predefined option,81,Predefined answer option of Q22
+Q22,What are the biggest challenges you face when creating architecture views?,Perceived low value,predefined option,68,Predefined answer option of Q22
+Q22,What are the biggest challenges you face when creating architecture views?,Lack of existing documentation,predefined option,65,Predefined answer option of Q22
+Q22,What are the biggest challenges you face when creating architecture views?,Insufficient architectural design skills,predefined option,62,Predefined answer option of Q22
+Q22,What are the biggest challenges you face when creating architecture views?,Lack of tools,predefined option,59,Predefined answer option of Q22
+Q22,What are the biggest challenges you face when creating architecture views?,NONE,predefined option,5,Respondent reports no challenge
+Q22,What are the biggest challenges you face when creating architecture views?,Other,emergent category,3,"Challenge not among the options (e.g., consensus on content, readability)"
+Q23,Who is the intended user of your architecture views?,New potential contributors,predefined option,317,Predefined answer option of Q23
+Q23,Who is the intended user of your architecture views?,Myself,predefined option,310,Predefined answer option of Q23
+Q23,Who is the intended user of your architecture views?,Existing contributors,predefined option,300,Predefined answer option of Q23
+Q23,Who is the intended user of your architecture views?,Project maintainers,predefined option,266,Predefined answer option of Q23
+Q23,Who is the intended user of your architecture views?,End users,predefined option,102,Predefined answer option of Q23
+Q23,Who is the intended user of your architecture views?,Other,emergent category,6,"Other audiences (e.g., teammates, operators)"
+Q23,Who is the intended user of your architecture views?,Stakeholders,predefined option,6,"Clients, sponsors, stakeholders on client/vendor side"
+Q23,Who is the intended user of your architecture views?,Management,predefined option,4,"Managers, directors, executives"
+Q30,"If yes, please specify which tool you use",LLM tools,emergent code,7,"Generative AI / LLM assistants (e.g., ChatGPT, Claude, AI-generated Mermaid)"
+Q30,"If yes, please specify which tool you use",Mermaid,emergent code,5,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",Diagrams,emergent code,4,"Python ""diagrams"" library (mingrammer)"
+Q30,"If yes, please specify which tool you use",PlantUML,emergent code,3,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",Database Management Tools,emergent code,2,"Tools generating data diagrams from a database (e.g., DBeaver)"
+Q30,"If yes, please specify which tool you use",Draw.io,emergent code,2,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",Other,emergent code,2,Tool not remembered or self-built prototype
+Q30,"If yes, please specify which tool you use",pprof,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",chartmap,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",GitHub.com/tikimfee/lookatthat - custom 3d renderer for Visiospatial review / search,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",PHP deptracker,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",eraser.io,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",discopy,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",IDE UML Diagram Features,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",Code Analysis Tools,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",API documentation generators that create reference materials from source code,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",UML,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",Figma,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",GraphViz,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",Doxygen,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",IntelliJ diagrams,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",StructurizR,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",Excalidraw,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",cargo spec,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",Miro,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",Visual Paradigm,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use","I've used rational rose in the past, but haven't for over ten years.",emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",pyreverse,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",Jetbrains Resharper Extension,emergent code,1,Tool named by the respondent (name normalized)
+Q30,"If yes, please specify which tool you use",a codebase i wrote to produce graphvis   graphs from  AST's,emergent code,1,Tool named by the respondent (name normalized)
+Q31,Which of the following aspects could in your opinion be automated?,Identification of connections / interaction between components,predefined option,234,Predefined answer option of Q31
+Q31,Which of the following aspects could in your opinion be automated?,Identification of architecture components,predefined option,221,Predefined answer option of Q31
+Q31,Which of the following aspects could in your opinion be automated?,"Linking architecture view elements to code artefacts (code classes, technologies, etc)",predefined option,179,Predefined answer option of Q31
+Q31,Which of the following aspects could in your opinion be automated?,Architecture view creation,predefined option,167,Predefined answer option of Q31
+Q31,Which of the following aspects could in your opinion be automated?,Architecture view validation,predefined option,162,Predefined answer option of Q31
+Q31,Which of the following aspects could in your opinion be automated?,Architecture view update,predefined option,154,Predefined answer option of Q31
+Q31,Which of the following aspects could in your opinion be automated?,NONE,predefined option,16,Nothing can be automated
+Q31,Which of the following aspects could in your opinion be automated?,Other,emergent category,13,"Uncertain or conditional answer (e.g., ""only with code annotations"")"
+Q32,"In your opinion, how will the creation of architecture views change in the future?",AI-centered,emergent code,47,AI/LLMs will drive view creation and maintenance
+Q32,"In your opinion, how will the creation of architecture views change in the future?",Automation,emergent code,18,Generic (non AI-specific) automation of view creation/update
+Q32,"In your opinion, how will the creation of architecture views change in the future?",Code-View Coupling,emergent code,15,"Tighter link between code and views, generation from code"
+Q32,"In your opinion, how will the creation of architecture views change in the future?",Other,emergent code,9,Vision not attributable to any category
+Q32,"In your opinion, how will the creation of architecture views change in the future?",No Changes,emergent code,7,No significant change expected
+Q32,"In your opinion, how will the creation of architecture views change in the future?",Nicer UI,emergent code,5,Better user interfaces / tooling
+Q32,"In your opinion, how will the creation of architecture views change in the future?",Easier management,emergent code,5,Views will be easier to create and update
+Q32,"In your opinion, how will the creation of architecture views change in the future?",3D views,emergent code,3,Three-dimensional / immersive views
+Q32,"In your opinion, how will the creation of architecture views change in the future?",AI-Skeptical,emergent code,3,Doubts about the accuracy/usefulness of AI-generated views
+Q32,"In your opinion, how will the creation of architecture views change in the future?",Do not knows,emergent code,2,Respondent has no opinion
+Q32,"In your opinion, how will the creation of architecture views change in the future?",VCS-Integration,emergent code,2,Views versioned together with code
+Q33,Any further comments o suggestions?,communication,emergent code,4,Views as a communication medium
+Q33,Any further comments o suggestions?,repository/tool suggestions,emergent code,4,Suggestion of tools or repositories
+Q33,Any further comments o suggestions?,encouragement,emergent code,3,Encouragement for the study
+Q33,Any further comments o suggestions?,automation (AI),emergent code,3,AI will support view creation/maintenance
+Q33,Any further comments o suggestions?,define_architecture,emergent code,2,"Need for a clearer definition of ""architecture"" / view types"
+Q33,Any further comments o suggestions?,misalignment,emergent code,2,Views drift away from the real/deployed system
+Q33,Any further comments o suggestions?,too_focused_on_code,emergent code,2,Survey/approach too code-centric; views are broader than code
+Q33,Any further comments o suggestions?,survey_suggestion,emergent code,2,Feedback on the questionnaire itself
+Q33,Any further comments o suggestions?,textual_views,emergent code,1,Preference for textual over visual views
+Q33,Any further comments o suggestions?,discouragement,emergent code,1,Disagreement with the premises of the survey
+Q33,Any further comments o suggestions?,integration,emergent code,1,Integration with SDLC / CI-CD processes
+Q33,Any further comments o suggestions?,automation,emergent code,1,"Limits of automation (e.g., diagram layout)"
+Q33,Any further comments o suggestions?,communication (multimedia),emergent code,1,Views need complementary media/explanations to be effective
+Q33,Any further comments o suggestions?,dedicated_role,emergent code,1,Producing views requires a dedicated role/effort
+Q33,Any further comments o suggestions?,GUI,emergent code,1,Wish for a GUI on top of diagram-as-code tools

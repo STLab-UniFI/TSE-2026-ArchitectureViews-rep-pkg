@@ -1,7 +1,7 @@
 # Macro-categories emerging from the open-ended questions
 
 Multi-label coding; counts are numbers of answers over the 411 valid respondents.
-Labels match those in `codebook.csv` and in the `[CODED]` columns of `... - Coding.csv`.
+Labels match those in `codebook.csv` and in the `[CODED]` columns of `coding/Data analysis - Architectural Views Survey Replication Package - Coding.csv`.
 
 | Question (answers) | Codes / macro-categories (n) |
 |---|---|

@@ -52,6 +52,17 @@ replicationPackage/
 > included in [`survey-dissemination/mail-sender.py`](survey-dissemination/mail-sender.py)
 > (the message body, with the survey link).
 
+## Relationship to prior work
+
+[`recruiting/ECSA24-dataset.csv`](recruiting/ECSA24-dataset.csv) contains the GitHub repositories in which our previous repository-mining study (S. Migliorini, R. Verdecchia, I. Malavolta, P. Lago, E. Vicario, *Architectural Views: The State of Practice in Open-Source Software Projects*, ECSA 2024, DOI: [10.1007/978-3-031-70797-1_27](https://doi.org/10.1007/978-3-031-70797-1_27)) identified architectural views. That study characterized architectural views *as published* in OSS repositories, the companion work of this repository aims to capture the *perceptions and preferences* of the contributors who create and use them. The file is used in the study for two purposes only:
+
+1. **Sampling frame.** The recent contributors of the 12,853 distinct repositories listed in the file were retrieved via the GitHub API (`api-scraper.py`) and filtered (`address-validator.py`), yielding the 15,605 invited developers.
+2. **Illustrative examples.** The example views discussed in the results of the paper were selected from these repositories.
+
+The file contains repository metadata only (no contributor data), is not used in the analysis of the survey responses, and is not needed to reproduce the figures. The comparison between the preferences reported by respondents and the practice observed in the prior study is discussed in the paper. The complete dataset and documentation of the prior study are available in its
+own replication package: [https://doi.org/10.6084/m9.figshare.25684386](https://doi.org/10.6084/m9.figshare.25684386).
+
+
 ## Qualitative coding (`coding/`)
 
 Free-text answers were analyzed via manual coding with a twofold purpose: (i) mapping the free-text ("other") answers of the nine semi-closed questions (Q5, Q13, Q14, Q17, Q20, Q21, Q22, Q23, Q31) onto the closed-ended option they refer to, or onto a new category not anticipated by the questionnaire (e.g., `Academic/Researcher` for Q5, `Diagram as code` and `VCS friendly` for Q21, `Stakeholders` for Q23); (ii) identifying the themes emerging from the four open-ended questions (Q19, Q30, Q32, Q33).

@@ -21,6 +21,7 @@ code.
 | `likert_charts.py` | all diverging Likert plots |
 | `cumulative_response_time.py` | responses-over-time plot |
 | `inter_rater.py` | Cohen's kappa / Krippendorff's alpha report |
+| `notation_cross_analysis.py` | Q7 × Q17 × Q20 notation cross-analysis report |
 | `config.py` | shared paths and the respondent filter |
 | `compat.py` | pandas >= 3.0 compatibility shims |
 
@@ -37,3 +38,4 @@ Each family can also be run on its own, e.g. `python bar_charts.py`.
   `automatable-aspect`, `view-changes`, `further-comments` (`.pdf`)
 - **Cumulative responses:** `response-time.pdf`
 - **Inter-rater agreement:** `inter-rater-agreement.txt`
+- **Notation cross-analysis:** `notation-cross-analysis.txt`

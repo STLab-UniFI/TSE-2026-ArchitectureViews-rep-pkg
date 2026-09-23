@@ -2,6 +2,7 @@ pandas>=3.0
 matplotlib>=3.10
 seaborn>=0.13
 numpy>=2.0
+scipy>=1.15
 plot-likert==0.5.0
 scikit-learn>=1.6
 krippendorff>=0.8

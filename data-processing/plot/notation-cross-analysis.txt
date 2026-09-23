@@ -1,0 +1,19 @@
+Cross-analysis of Q7 (informal notation), Q17 (standard notations) and
+Q20 (tools used), over the respondents who passed the Q1 screening.
+
+Valid respondents: 411
+Q7, agree or strongly agree (all respondents): 281 (68.4%)
+
+Respondents declaring the use of UML (Q17): 212
+  no tool enforcing a notation (Q20):            188 (88.7%)
+  at least one notation-enforcing tool (Q20):    24 (11.3%)
+  agree or strongly agree with Q7:               137 (64.6%)
+  disagree with Q7 and use an enforcing tool:    4 (1.9%)
+
+Remaining respondents: 199
+  agree or strongly agree with Q7:               144 (72.4%)
+
+Mann-Whitney U on Q7 (UML vs. remaining respondents): U = 19508.0, p = 0.166
+
+Tool labels mentioned in Q20 but absent from the tool classification (counted as non-enforcing unless listed in UNCLASSIFIED_ENFORCING):
+  ASCII-Art, Caldera’s, Free hand, Jetbrains Resharper Extension, MockUp, SVG software, Sigma, UML compiler

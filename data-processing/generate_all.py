@@ -16,6 +16,7 @@ import likert_charts
 import cumulative_response_time
 import inter_rater
 import notation_cross_analysis
+import lifecycle_cross_analysis
 from config import OUTPUT_DIR
 
 
@@ -27,6 +28,7 @@ def main():
     cumulative_response_time.generate_all()
     inter_rater.generate_all()
     notation_cross_analysis.generate_all()
+    lifecycle_cross_analysis.generate_all()
     print("\nDone. All figures are in ./plot")
 
 

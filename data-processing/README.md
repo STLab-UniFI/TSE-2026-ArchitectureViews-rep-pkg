@@ -22,6 +22,7 @@ code.
 | `cumulative_response_time.py` | responses-over-time plot |
 | `inter_rater.py` | Cohen's kappa / Krippendorff's alpha report |
 | `notation_cross_analysis.py` | Q7 × Q17 × Q20 notation cross-analysis report |
+| `lifecycle_cross_analysis.py` | Q16 lifecycle activities × Q7–Q12, Q18, Q24–Q28 cross-analysis report |
 | `config.py` | shared paths and the respondent filter |
 | `compat.py` | pandas >= 3.0 compatibility shims |
 
@@ -39,3 +40,4 @@ Each family can also be run on its own, e.g. `python bar_charts.py`.
 - **Cumulative responses:** `response-time.pdf`
 - **Inter-rater agreement:** `inter-rater-agreement.txt`
 - **Notation cross-analysis:** `notation-cross-analysis.txt`
+- **Lifecycle cross-analysis:** `lifecycle-cross-analysis.txt`

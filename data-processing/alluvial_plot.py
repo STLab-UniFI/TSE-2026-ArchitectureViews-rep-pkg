@@ -1,13 +1,15 @@
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from matplotlib.path import Path
 import numpy as np
-import seaborn as sns
 from collections import defaultdict, Counter
 import warnings
 warnings.filterwarnings('ignore')
 import textwrap
+
+import figstyle
 
 class PublicationAlluvialPlot:
     def __init__(self, csv_file_path, use_occurrence_weights=True, figsize=(16, 10), dpi=300):
@@ -43,19 +45,22 @@ class PublicationAlluvialPlot:
         
         # Styling parameters - publication ready defaults
         self.style_params = {
-            'font_family': 'DejaVu Sans',
-            'font_size_title': 16,
-            'font_size_labels': 12,
-            'font_size_ticks': 10,
-            'node_width': 0.38,
+            'font_family': figstyle.SANS_FONTS,
+            'font_size_title': figstyle.TITLE_SIZE,
+            'font_size_labels': figstyle.TITLE_SIZE,   # column headers
+            'font_size_ticks': figstyle.FONT_SIZE,     # node labels
+            'label_linespacing': 1.1,
+            'node_width': 0.64,
             'column_spacing': 1.0,
             'node_spacing': 0.02,
-            'flow_alpha': 0.6,
-            'node_edge_color': 'black',
-            'node_edge_width': 1.0,
+            'flow_alpha': 0.55,
+            'node_edge_color': figstyle.AXIS_COLOR,
+            'node_edge_width': 0.5,
             'background_color': 'white',
             'grid': False,
-            'color_palette': 'Set2'
+            # one hue, different intensity levels within each dimension
+            'palette': figstyle.BLUES,
+            'category_order': {},
         }
 
     
@@ -212,257 +217,176 @@ class PublicationAlluvialPlot:
 
 
 
+
+    # ------------------------------------------------------------------ drawing
+    def _text_size_pt(self, text, size, weight="normal"):
+        """Width and height (points) of a text as it will be drawn."""
+        probe = self.fig.text(0, 0, text, fontsize=size, fontweight=weight,
+                              linespacing=self.style_params['label_linespacing'])
+        bbox = probe.get_window_extent(self.fig.canvas.get_renderer())
+        probe.remove()
+        return bbox.width * 72 / self.fig.dpi, bbox.height * 72 / self.fig.dpi
+
+    def _column_colors(self, col):
+        """Intensity levels of one hue: darkest for the first category in
+        style_params['category_order'] (or the most frequent one)."""
+        values = [v for (c, v) in self.node_positions if c == col]
+        order = self.style_params['category_order'].get(col)
+        if order:
+            ranked = [v for v in order if v in values] + [v for v in values if v not in order]
+        else:
+            ranked = sorted(values, key=lambda v: -self.node_positions[(col, v)]['weighted_count'])
+        palette = list(self.style_params['palette'])
+        if len(ranked) > len(palette):
+            cmap = matplotlib.colormaps['Blues_r']
+            palette = [matplotlib.colors.to_hex(cmap(t)) for t in np.linspace(0.1, 0.85, len(ranked))]
+        return {v: palette[i] for i, v in enumerate(ranked)}
+
+    def _node_label(self, value, count, width_pt, height_pt):
+        """Pick the first label layout that fits inside the node, else draw it outside."""
+        size = self.style_params['font_size_ticks']
+        candidates = [f"{value}\n({count})", f"{value} ({count})"]
+        words = value.replace("-", "- ").split()
+        if len(words) > 1:  # one word per line, breaking also after hyphens
+            candidates.append("\n".join(w.strip() for w in words) + f"\n({count})")
+        for text in candidates:
+            w, h = self._text_size_pt(text, size)
+            if w + 3 <= width_pt and h + 2 <= height_pt:
+                return text, True
+        return f"{value} ({count})", False
+
+    def _layout(self):
+        """Axis limits so that the nodes, the labels drawn outside the nodes and the
+        column headers fit the figure exactly."""
+        sp = self.style_params
+        n = len(self.columns)
+        nw = sp['node_width']
+        W = self.figsize[0] * 72
+        H = self.figsize[1] * 72
+        head_w = [self._text_size_pt(c, sp['font_size_labels'], 'bold')[0] for c in self.columns]
+        head_h = self._text_size_pt("Ag", sp['font_size_labels'], 'bold')[1]
+        y_max = max(p['y_bottom'] + p['height'] for p in self.node_positions.values())
+        left_pt = right_pt = 0.0
+        ppy = H / (y_max * 1.2)
+        for _ in range(5):
+            ppx = (W - left_pt - right_pt) / ((n - 1) + nw)
+            left_pt = max(2.0, head_w[0] / 2 - nw * ppx / 2 + 3)
+            right_pt = max(2.0, head_w[-1] / 2 - nw * ppx / 2 + 3)
+            ppx = (W - left_pt - right_pt) / ((n - 1) + nw)
+            # labels that do not fit their node are drawn above it: reserve room
+            above_pt = 0.0
+            self.labels = {}
+            for key, pos in self.node_positions.items():
+                count = int(pos['weighted_count']) if (self.use_occurrence_weights and self.has_occurrence_column) else pos['row_count']
+                text, inside = self._node_label(str(key[1]), count, nw * ppx, pos['height'] * ppy)
+                self.labels[key] = (text, inside)
+                if not inside:
+                    above_pt = max(above_pt, self._text_size_pt(text, sp['font_size_ticks'])[1] + 2)
+            gap_pt = 4.0
+            top_units = y_max + (above_pt + gap_pt + head_h + 1) / ppy
+            bottom_units = 1.0 / ppy
+            ppy = H / (top_units + bottom_units)
+        self.ppx, self.ppy = ppx, ppy
+        self.header_y = y_max + (above_pt + gap_pt) / ppy
+        self.ax.set_xlim(-nw / 2 - left_pt / ppx, (n - 1) + nw / 2 + right_pt / ppx)
+        self.ax.set_ylim(-bottom_units, top_units)
+
     def setup_plot(self):
-        """Initialize matplotlib figure with publication-ready settings"""
-        # Set up matplotlib for publication quality
-        plt.rcParams['font.family'] = self.style_params['font_family']
-        plt.rcParams['font.size'] = self.style_params['font_size_labels']
-        plt.rcParams['axes.linewidth'] = 1.0
-        plt.rcParams['axes.edgecolor'] = 'black'
-        plt.rcParams['xtick.major.width'] = 1.0
-        plt.rcParams['ytick.major.width'] = 1.0
-        plt.rcParams['pdf.fonttype'] = 42  # Embed fonts in PDF
-        
-        # Create figure
-        self.fig, self.ax = plt.subplots(1, 1, figsize=self.figsize, dpi=self.dpi)
+        """Figure at its printed size; the axes fill the whole figure."""
+        figstyle.apply()
+        self.fig = plt.figure(figsize=self.figsize, dpi=self.dpi)
+        self.ax = self.fig.add_axes([0, 0, 1, 1])
         self.ax.set_facecolor(self.style_params['background_color'])
-        
-        # Set axis properties
-        self.ax.set_xlim(-0.5, len(self.columns) - 0.5)
-        self.ax.set_ylim(-0.1, 1.2)
-        
-        # Remove spines and ticks
-        for spine in self.ax.spines.values():
-            spine.set_visible(False)
-        self.ax.set_xticks([])
-        self.ax.set_yticks([])
-        
-        if not self.style_params['grid']:
-            self.ax.grid(False)
+        self.ax.set_axis_off()
+        self.node_colors = {}
+        for col in self.columns:
+            for value, color in self._column_colors(col).items():
+                self.node_colors[(col, value)] = color
+        self._layout()
 
     def draw_nodes(self):
-        """Draw rectangular nodes for each category value with centered, wrapped labels."""
-    
-        # AUMENTA un po' la larghezza della barra (puoi regolare 0.2 -> da 0.08...)
-        node_width = self.style_params.get('node_width', 0.2)
-        font_size = self.style_params.get('font_size_ticks', 10)
-        max_chars_per_line = 18  # Regola per il wrapping, dipende dalla larghezza barra
-    
-        # Get unique values to assign colors
-        all_values = set()
-        for col in self.columns:
-            all_values.update(self.processed_df[col].unique())
-    
-        colors = sns.color_palette(self.style_params['color_palette'], len(all_values))
-        value_colors = dict(zip(sorted(all_values), colors))
-    
-        for (col, value), pos in self.node_positions.items():
-            # Crea rettangolo barra
-            rect = patches.Rectangle(
-                (pos['x'] - node_width/2, pos['y_bottom']),
-                node_width,
-                pos['height'],
-                facecolor=value_colors[value],
-                edgecolor=self.style_params['node_edge_color'],
-                linewidth=self.style_params['node_edge_width'],
-                alpha=0.8
-            )
-            self.ax.add_patch(rect)
-    
-            # Label (solo il nome, non il conteggio)
-            if self.use_occurrence_weights and self.has_occurrence_column:
-                label = f"{value}\n({int(pos['weighted_count'])})"
+        """Nodes coloured by intensity level, with labels inside when they fit."""
+        sp = self.style_params
+        nw = sp['node_width']
+        for key, pos in self.node_positions.items():
+            color = self.node_colors[key]
+            self.ax.add_patch(patches.Rectangle(
+                (pos['x'] - nw / 2, pos['y_bottom']), nw, pos['height'],
+                facecolor=color, edgecolor=sp['node_edge_color'],
+                linewidth=sp['node_edge_width'], zorder=2))
+            text, inside = self.labels[key]
+            if inside:
+                self.ax.text(pos['x'], pos['y_bottom'] + pos['height'] / 2, text,
+                             ha='center', va='center', fontsize=sp['font_size_ticks'],
+                             color=figstyle.text_color_on(color),
+                             linespacing=sp['label_linespacing'], zorder=3)
             else:
-                label = f"{value}\n({pos['row_count']})"
-    
-            # Wrapping: spezza solo la prima riga (il nome), lascia il contenuto tra () sulla seconda riga
-            parts = label.split("\n")
-            wrapped_label = "\n".join([
-                "\n".join(textwrap.wrap(parts[0], max_chars_per_line)),
-                *(parts[1:] if len(parts) > 1 else [])
-            ])
-    
-            # Centro verticalmente e orizzontalmente il testo
-            text_x = pos['x']
-            text_y = pos['y_bottom'] + pos['height'] / 2
-    
-            self.ax.text(
-                text_x, text_y, wrapped_label,
-                ha='center', va='center',
-                fontsize=font_size,
-                fontweight='normal',
-                wrap=True  # solo estetico, importante è il textwrap sopra
-            )
-
-    def draw_nodesOLD(self):
-        """Draw rectangular nodes for each category value with appropriate counts"""
-        # Get colors for different values
-        all_values = set()
-        for col in self.columns:
-            all_values.update(self.processed_df[col].unique())
-        
-        # Create color mapping
-        colors = sns.color_palette(self.style_params['color_palette'], len(all_values))
-        value_colors = dict(zip(sorted(all_values), colors))
-        
-        # Draw nodes
-        for (col, value), pos in self.node_positions.items():
-            # Create rectangle
-            rect = patches.Rectangle(
-                (pos['x'] - self.style_params['node_width']/2, pos['y_bottom']),
-                self.style_params['node_width'],
-                pos['height'],
-                facecolor=value_colors[value],
-                edgecolor=self.style_params['node_edge_color'],
-                linewidth=self.style_params['node_edge_width'],
-                alpha=0.8
-            )
-            self.ax.add_patch(rect)
-            
-            # Add value label
-            text_y = pos['y_bottom'] + pos['height'] / 2
-            
-            # Adjust text position based on column
-            if pos['column_index'] == 0:  # First column - label on left
-                text_x = pos['x'] - self.style_params['node_width']/2 - 0.02
-                ha = 'right'
-            elif pos['column_index'] == len(self.columns) - 1:  # Last column - label on right
-                text_x = pos['x'] + self.style_params['node_width']/2 + 0.02
-                ha = 'left'
-            else:  # Middle columns - label on top
-                text_x = pos['x']
-                text_y = pos['y_bottom'] + pos['height'] + 0.01
-                ha = 'center'
-            
-            # Format label based on weighting mode
-            if self.use_occurrence_weights and self.has_occurrence_column and pos['weighted_count'] != pos['row_count']:
-                # Show weighted count when different from row count
-                label_text = f"{value}\n({pos['weighted_count']})"
-            else:
-                # Show regular count
-                label_text = f"{value}\n({pos['row_count']})"
-            
-            self.ax.text(text_x, text_y, label_text, 
-                        ha=ha, va='center', 
-                        fontsize=self.style_params['font_size_ticks'],
-                        fontweight='normal')
+                self.ax.annotate(text, (pos['x'], pos['y_bottom'] + pos['height']),
+                                 xytext=(0, 2), textcoords='offset points',
+                                 ha='center', va='bottom', fontsize=sp['font_size_ticks'],
+                                 zorder=3)
 
     def draw_flows(self):
-        """Draw curved flows between nodes using Bézier curves with weighted heights"""
-        # Group flows by source value for consistent coloring
-        all_values = set()
-        for col in self.columns:
-            all_values.update(self.processed_df[col].unique())
-        
-        colors = sns.color_palette(self.style_params['color_palette'], len(all_values))
-        value_colors = dict(zip(sorted(all_values), colors))
-        
-        # Track vertical positions within each node for flow positioning
+        """Curved flows between adjacent columns, coloured like their source node."""
+        nw = self.style_params['node_width']
         source_positions = defaultdict(float)
         target_positions = defaultdict(float)
-        
         for flow in sorted(self.flows, key=lambda x: x['weighted_count'], reverse=True):
             source_key = (flow['source_col'], flow['source_value'])
             target_key = (flow['target_col'], flow['target_value'])
-            
             if source_key not in self.node_positions or target_key not in self.node_positions:
                 continue
-            
             source_pos = self.node_positions[source_key]
             target_pos = self.node_positions[target_key]
-            
-            # Calculate flow height based on normalized weighted count
             flow_height = flow['normalized_count']
-            
-            # Calculate source and target y positions within their nodes
+
             source_y_start = source_pos['y_bottom'] + source_positions[source_key]
             source_y_end = source_y_start + flow_height
             source_positions[source_key] += flow_height
-            
             target_y_start = target_pos['y_bottom'] + target_positions[target_key]
             target_y_end = target_y_start + flow_height
             target_positions[target_key] += flow_height
-            
-            # Create Bézier curve for the flow
-            source_x = source_pos['x'] + self.style_params['node_width']/2
-            target_x = target_pos['x'] - self.style_params['node_width']/2
-            
-            # Control points for smooth curve
+
+            source_x = source_pos['x'] + nw / 2
+            target_x = target_pos['x'] - nw / 2
             ctrl_offset = (target_x - source_x) * 0.5
-            
-            # Create path for the flow using Bézier curves
             verts = [
-                (source_x, source_y_start),  # Start bottom
-                (source_x + ctrl_offset, source_y_start),  # Control point 1
-                (target_x - ctrl_offset, target_y_start),  # Control point 2
-                (target_x, target_y_start),  # End bottom
-                (target_x, target_y_end),  # End top
-                (target_x - ctrl_offset, target_y_end),  # Control point 3
-                (source_x + ctrl_offset, source_y_end),  # Control point 4
-                (source_x, source_y_end),  # Start top
-                (source_x, source_y_start),  # Close path
+                (source_x, source_y_start),
+                (source_x + ctrl_offset, source_y_start),
+                (target_x - ctrl_offset, target_y_start),
+                (target_x, target_y_start),
+                (target_x, target_y_end),
+                (target_x - ctrl_offset, target_y_end),
+                (source_x + ctrl_offset, source_y_end),
+                (source_x, source_y_end),
+                (source_x, source_y_start),
             ]
-            
-            codes = [
-                Path.MOVETO,
-                Path.CURVE4, Path.CURVE4, Path.CURVE4,
-                Path.LINETO,
-                Path.CURVE4, Path.CURVE4, Path.CURVE4,
-                Path.CLOSEPOLY
-            ]
-            
-            path = Path(verts, codes)
-            patch = patches.PathPatch(path, 
-                                    facecolor=value_colors[flow['source_value']], 
-                                    alpha=self.style_params['flow_alpha'],
-                                    edgecolor='none')
-            self.ax.add_patch(patch)
+            codes = [Path.MOVETO, Path.CURVE4, Path.CURVE4, Path.CURVE4, Path.LINETO,
+                     Path.CURVE4, Path.CURVE4, Path.CURVE4, Path.CLOSEPOLY]
+            color = self.node_colors[source_key]
+            # light colours need more opacity to remain visible on white
+            alpha = self.style_params['flow_alpha']
+            if figstyle.text_color_on(color) == 'black':
+                alpha = min(1.0, alpha + 0.3)
+            self.ax.add_patch(patches.PathPatch(
+                Path(verts, codes), facecolor=color, alpha=alpha, edgecolor='none', zorder=1))
 
     def add_column_labels(self):
-        """Add column headers"""
+        """Column headers above the nodes."""
         for i, col in enumerate(self.columns):
-            x_pos = i * self.style_params['column_spacing']
-            self.ax.text(x_pos, 1.1, col, 
-                        ha='center', va='bottom',
-                        fontsize=self.style_params['font_size_labels'],
-                        fontweight='bold')
+            self.ax.text(i * self.style_params['column_spacing'], self.header_y, col,
+                         ha='center', va='bottom', fontsize=self.style_params['font_size_labels'],
+                         fontweight='bold')
 
     def add_title_and_annotations(self, title="Tool Characteristics Flow Analysis"):
-        """Add title and annotations with appropriate count information"""
-        self.ax.text(len(self.columns)/2 - 0.5, 1.25, title,
-                    ha='center', va='bottom',
-                    fontsize=self.style_params['font_size_title'],
-                    fontweight='bold')
-        
-        # Add sample size annotation
-        if self.use_occurrence_weights and self.has_occurrence_column and self.total_weighted_count != self.total_row_count:
-            annotation = f"n = {self.total_row_count} entries, {self.total_weighted_count:.0f} weighted total"
-        else:
-            annotation = f"n = {self.total_row_count} tools analyzed"
-        
-        self.ax.text(len(self.columns)/2 - 0.5, -0.08,
-                    annotation,
-                    ha='center', va='top',
-                    fontsize=self.style_params['font_size_ticks'],
-                    style='italic',
-                    color='gray')
+        """Optional title (not used in the paper)."""
+        self.ax.set_title(title, fontsize=self.style_params['font_size_title'], fontweight='bold')
 
     def save_plot(self, filename='alluvial_plot.pdf', format='pdf'):
-        """Save the plot in publication-ready format"""
-        if format.lower() == 'pdf':
-            self.fig.savefig(filename, format='pdf', 
-                           dpi=self.dpi, bbox_inches='tight',
-                           facecolor='white', edgecolor='none',
-                           metadata={'Creator': 'Publication Alluvial Plot Generator'})
-        elif format.lower() == 'svg':
-            self.fig.savefig(filename, format='svg',
-                           dpi=self.dpi, bbox_inches='tight',
-                           facecolor='white', edgecolor='none')
-        elif format.lower() in ['png', 'jpg', 'jpeg']:
-            self.fig.savefig(filename, format=format.lower(),
-                           dpi=self.dpi, bbox_inches='tight',
-                           facecolor='white', edgecolor='none')
-        
+        """Save at the exact figure size (no tight cropping)."""
+        self.fig.savefig(filename, format=format.lower(), dpi=self.dpi, facecolor='white',
+                         edgecolor='none', metadata={'Creator': 'Publication Alluvial Plot Generator'}
+                         if format.lower() == 'pdf' else None)
         print(f"✓ Plot saved as: {filename}")
 
     def customize_style(self, **kwargs):
@@ -494,46 +418,43 @@ class PublicationAlluvialPlot:
             print(f"    * Max: {weight_stats['max']:.1f}")
             print(f"    * Std: {weight_stats['std']:.1f}")
 
-    def generate_plot(self, title="Tool Characteristics Flow Analysis", 
-                     output_file='weighted_alluvial.pdf', 
-                     output_format='pdf', show_plot=False):
+
+    def generate_plot(self, title="Tool Characteristics Flow Analysis",
+                      output_file='weighted_alluvial.pdf',
+                      output_format='pdf', show_plot=False):
         """Generate the complete alluvial plot with occurrence weights support"""
         mode = "weighted" if (self.use_occurrence_weights and self.has_occurrence_column) else "unit count"
         print(f"🎨 Generating publication-grade alluvial plot ({mode} mode)...")
-        
+
         # Load and preprocess data
         if not self.load_and_preprocess_data():
             return False
-        
+
         # Calculate positions and flows
         print("📊 Calculating node positions and flows...")
         self.calculate_node_positions()
         self.calculate_flows()
-        
-        # Create plot
+
+        # Create plot (the figure is laid out at its printed size, no tight_layout)
         print("🖼️  Creating visualization...")
         self.setup_plot()
         self.draw_flows()  # Draw flows first (background)
         self.draw_nodes()  # Draw nodes on top
         self.add_column_labels()
-        # self.add_title_and_annotations(title)
-        
-        # Adjust layout
-        plt.tight_layout()
-        
+
         # Save plot
         self.save_plot(output_file, output_format)
-        
+
         # Show plot if requested
         if show_plot:
             plt.show()
         else:
-            plt.close()
-        
+            plt.close(self.fig)
+
         print("✅ Publication-grade alluvial plot generated successfully!")
-        
+
         # Print detailed summary
         self.print_summary_statistics()
         print(f"  - Output: {output_file}")
-        
+
         return True
